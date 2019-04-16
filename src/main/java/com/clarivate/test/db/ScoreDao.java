@@ -15,6 +15,8 @@ import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapper;
 import org.skife.jdbi.v2.tweak.ResultSetMapper;
 import org.springframework.stereotype.Repository;
 
+import com.clarivate.test.util.DbUtil;
+
 @Repository
 public class ScoreDao extends BaseDao {
 

@@ -1,4 +1,4 @@
-package com.clarivate.test.db;
+package com.clarivate.test.util;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
