@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "70ace29b-613d-43c3-9f5b-b8682a78082c",
+		"name": "clarivate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "48fcae79-0c9c-451b-8c4e-51afec030200",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"session-key\", jsonData.token);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"Liam\",\n\t\"password\": \"1234\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Level Score",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Session-Key",
+						"value": "{{session-key}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/level/1/score/1500",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"level",
+						"1",
+						"score",
+						"1500"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Score List by Level",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Session-Key",
+						"value": "{{session-key}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/level/1/score",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"level",
+						"1",
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HighScore List by Level",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Session-Key",
+						"value": "{{session-key}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/level/1/score?filter=highestscore",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"level",
+						"1",
+						"score"
+					],
+					"query": [
+						{
+							"key": "filter",
+							"value": "highestscore"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
